@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Manager</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Company Logo">
+        <h1>Contract Manager</h1>
+    </header>
+
+    <main>
+ 
+        <section>
+            <button onclick="document.getElementById('contractFormSection').style.display='block';">
+                Add New Contract
+            </button>
+        </section>
+
+        <section id="contractFormSection" style="display:none;">
+            <h2>New Contract Form</h2>
+            <form>
+                <label for="lender">Lender:</label>
+                <input type="text" id="lender" name="lender" required><br><br>
+
+                <label for="lendee">Lendee:</label>
+                <input type="text" id="lendee" name="lendee" required><br><br>
+
+                <label for="contractValue">Contract Value:</label>
+                <input type="number" id="contractValue" name="contractValue" required><br><br>
+
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate" name="startDate" required><br><br>
+
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate" name="endDate" required><br><br>
+
+                <button type="submit">Submit Contract</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Existing Contracts</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Lender</th>
+                        <th>Lendee</th>
+                        <th>Contract Value</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Party A</td>
+                        <td>Party B</td>
+                        <td>$10,000</td>
+                        <td>2024-01-01</td>
+                        <td>2025-01-01</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
+
+// framework for html 
