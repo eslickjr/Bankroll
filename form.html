@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Contract Input Form</title>
+
+  <!-- <link rel="stylesheet" href="./reset.css"/> -->
+  <!-- <link rel="stylesheet" href="./assets/css/styles.css" /> -->
+  <!-- <link rel="stylesheet" href="./assets/css/blog.css" /> -->
+
+  <script defer src="./assets/js/form.js" type="text/javascript"></script>
+  <script defer src="./assets/js/logic.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    <!-- To do: add style and formats to the header -->
+   <header>
+    <h1>Contract Input Form</h1>
+    <button id="back-button">Back</button>
+   </header>
+
+   <main>
+    <!-- creating a section for the form; probably not needed -->
+    <section>
+        <form>
+            <label for="contractId">Contract ID</label>
+            <input name="contractId" id="contractId" type="text" placeholder="Contract ID"></label>
+
+            <label for="vendor">Vendor</label>
+            <input name="vendor" id="vendor" type="text" placeholder="Vendor Name"></label>
+
+            <!-- note the input type here should be "number" -->
+            <label for="contractValue">Contract Value</label>
+            <input name="contractValue" id="contractValue" type="text" placeholder="Contract Value"></label>
+
+            <!-- note the input type here should be "date" -->
+            <label for="startDate">Start Date</label>
+            <input name="startDate" id="startDate" type="text" placeholder="Start Date"></label>
+
+            <!-- note the input type here should be "date" -->
+            <label for="endDate">End Date</label>
+            <input name="endDate" id="endDate" type="text" placeholder="End Date"></label>
+            <button id="submit-contract">Submit</button>
+        </form>
+    </section>
+    <p id="errorMessage"></p>
+   </main>
+
+   <footer>
+    <p>Made by the Bankrollers</p>
+   </footer>
+
+</body>
+
+</html>
