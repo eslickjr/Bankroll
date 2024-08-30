@@ -1,7 +1,7 @@
 // Get elements
 const mainEl = document.querySelector('main');
 const addButtonEl = document.getElementById('add-new');
-const tableEl = document.getElementById("table-start");
+const tableBodyEl = document.querySelector('tbody');
 
 // Create a function that builds a table row
 function buildRows(contractData){
@@ -12,6 +12,12 @@ function buildRows(contractData){
     const thStartEl = document.createElement('th');
     const thEndEl = document.createElement('th');
 
+    //create the button
+    const delButtonEl = document.createElement('BUTTON');
+    delButtonEl.className += 'delete-button';
+    //do not need id's for now
+    //delButtonEl.id = contractData.contractID;
+
     //add content to the th elements
     thIdEl.innerText = contractData.contractID;
     thVendorEl.innerText = contractData.vendor;
@@ -20,13 +26,14 @@ function buildRows(contractData){
     thEndEl.innerText = contractData.endDate;
 
     //adding the columns to the new row
+    tableRow.appendChild(delButtonEl);
     tableRow.appendChild(thIdEl);
     tableRow.appendChild(thVendorEl);
     tableRow.appendChild(thValueEl);
     tableRow.appendChild(thStartEl);
     tableRow.appendChild(thEndEl);
     //adding the row to the existing table
-    tableEl.appendChild(tableRow);
+    tableBodyEl.appendChild(tableRow);
 }
 
 // Create a function that handles the case where there are no contracts
@@ -53,3 +60,16 @@ renderContractList()
 addButtonEl.addEventListener('click', function() {
     redirectPage('./form.html');
 });
+
+// Add event listener to delete a contract when the delete button is clicked
+// Get all delete buttons by class
+const deleteButtonEls = document.querySelectorAll('.delete-button');
+
+// Loop through the array and add an event listener to each button
+for (let i=0; i<deleteButtonEls.length; i++){
+    deleteButtonEls[i].addEventListener('click', function(event){
+        event.preventDefault();
+        event.target.closest('tr').remove();
+        deleteRow(i);
+    }, false);
+}

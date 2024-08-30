@@ -15,3 +15,10 @@ function storeContractInfo(contractInfo){
 function redirectPage(redirectUrl) {
     location.assign(redirectUrl);
 }
+
+// Function to remove a row from the local storage
+function deleteRow(i){
+    const allContractsData = readContractsData();
+    allContractsData.splice(i,1);
+    localStorage.setItem('allContractsData', JSON.stringify(allContractsData));
+}
