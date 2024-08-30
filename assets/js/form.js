@@ -7,8 +7,8 @@ function submitContract(){
     const contractID = document.getElementById('contractId').value.trim();
     const vendor = document.getElementById('vendor').value.trim();
     const contractValue = document.getElementById('contractValue').value.trim();
-    const startDate = document.getElementById('startDate').value.trim();
-    const endDate = document.getElementById('endDate').value.trim();
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
     const errorMessage = document.getElementById('errorMessage');
 
     if(contractID==='' || vendor==='' || contractValue==='' || startDate==='' || endDate===''){
