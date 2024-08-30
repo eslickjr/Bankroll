@@ -52,9 +52,37 @@ function renderContractList() {
         }
     }
 }
+//sorting functionality
+function addSorting() {
+    const tableHeaders = document.querySelectorAll('#table-header th');
+    console.log(tableHeaders);
+    const header = document.querySelector('th');
+    /*tableHeaders.forEach((header) => {*/
+        console.log(header);
+    for (let i=1; i<tableHeaders.length; i++){
+        header.addEventListener('click', () => {
+            const key = header.dataset.key;
+            const sortedContracts = readContractsData().sort((a, b) => {
+                if (a[key] < b[key]) {
+                    return -1;
+                } else if (a[key] > b[key]) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
+            tableBodyEl.innerHTML = '';
+            sortedContracts.forEach((contract) => {
+                buildRows(contract);
+            });
+        });
+    };
+}
+
 
 // Call the renderContractList() function
 renderContractList()
+addSorting();
 
 // Add a new contract when the 'New Contract' button is clicked
 addButtonEl.addEventListener('click', function() {
