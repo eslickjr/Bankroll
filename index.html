@@ -19,30 +19,34 @@
 
 <body>
   <!-- TODO: Create header, main, and footer elements -->
-   <header>
+  <header>
     <h1>Contract Tracking</h1>
     <button id="add-new">+ New Contract</button>
-   </header>
+  </header>
 
-   <main>
-        <section>
-            <table id="table-start">
-                    <tr id="table-header">
-                        <!-- first row is a placeholder -->
-                        <th></th> 
-                        <th>Contract ID</th>
-                        <th>Vendor Name</th>
-                        <th>Contract Value ($)</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                    </tr>
-            </table>
-        </section>
-   </main>
+  <main>
+    <section>
+      <table id="table-start">
+        <thead>
+        <tr id="table-header">
+          <!-- first row is a placeholder -->
+          <th></th>
+          <th data-key="contractID">Contract ID</th>
+          <th data-key="vendor">Vendor Name</th>
+          <th data-key="contractValue">Contract Value ($)</th>
+          <th data-key="starthate">Start Date</th>
+          <th data-key="endDate">End Date</th>
+        </tr>
+      </thead>
+        <tbody id="table-body">
+        </tbody>
+      </table>
+    </section>
+  </main>
 
-   <footer>
+  <footer>
     <p>Made by the Bankrollers</p>
-   </footer>
+  </footer>
 
 </body>
 
