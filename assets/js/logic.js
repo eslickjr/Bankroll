@@ -14,11 +14,22 @@ function storeContractInfo(contractInfo){
 // Create redirect function
 function redirectPage(redirectUrl) {
     location.assign(redirectUrl);
-}
+} 
 
 // Function to remove a row from the local storage
 function deleteRow(i){
     const allContractsData = readContractsData();
     allContractsData.splice(i,1);
     localStorage.setItem('allContractsData', JSON.stringify(allContractsData));
+}
+
+// Function to sort an array of objects by key
+function sortByKey(key){
+    const originalArray = readContractsData();
+    const sortedArray = originalArray.sort(function(a,b){
+        let x=a[key];
+        let y=b[key];
+        return ((x<y) ? -1 : ((x>y) ? 1 : 0));
+    })
+    return sortedArray;
 }
