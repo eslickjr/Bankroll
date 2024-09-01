@@ -4,7 +4,7 @@ const addButtonEl = document.getElementById('add-new');
 const tableBodyEl = document.querySelector('tbody');
 
 // Create a function that builds a table row
-function buildRows(contractData){
+function buildRows(contractData,i){
     const tableRow = document.createElement('tr');
     const tdIdEl = document.createElement('td');
     tdIdEl.classList.add('contractID');
@@ -40,18 +40,23 @@ function buildRows(contractData){
     //adding the row to the existing table
     tableBodyEl.appendChild(tableRow);
 
+    delButtonEl.addEventListener('click', function(){
+        deleteRow(i)
+    });
     // Add event listener to delete a contract when the delete button is clicked
     // Get all delete buttons by class
+    /*
     const deleteButtonEls = document.querySelectorAll('.delete-button');
 
     // Loop through the array and add an event listener to each button
     for (let i=0; i<deleteButtonEls.length; i++){
         deleteButtonEls[i].addEventListener('click', function(event){
-            event.preventDefault();
-            event.target.closest('tr').remove();
+            //event.preventDefault();
+            //event.target.closest('tr').remove();
             deleteRow(i);
         }, false);
     }
+    */
 }
 
 // Create a function that handles the case where there are no contracts
@@ -67,31 +72,44 @@ function renderContractList() {
         noContracts();
     } else {
         for (let i=0; i<contractData.length; i++){
-            buildRows(contractData[i]);
+            buildRows(contractData[i],i);
         }
-    }
-}
-
-// Add sorting functionality
-const headerRowChildrenEls = document.querySelectorAll('th');
-for(let i=0; i<headerRowChildrenEls.length; i++){
-    if(!(headerRowChildrenEls[i].innerHTML==='')){
-        headerRowChildrenEls[i].addEventListener('click', function(event){
-            event.preventDefault();
-            console.log(i);
-            const key = tableBodyEl.rows[i-1].cells[i-1].className;
-            const sortedArray = sortByKey(key);
-            localStorage.setItem('allContractsData', JSON.stringify(sortedArray));
-            console.log(sortedArray);
-            renderContractList();
-        }, false);
     }
 }
 
 
 // Call the renderContractList() function
 renderContractList()
-    
+
+// Add a new contract when the 'New Contract' button is clicked
+addButtonEl.addEventListener('click', function() {
+    redirectPage('./form.html');
+});
+
+
+// // Add sorting functionality
+const headerRowChildrenEls = document.querySelectorAll('th');
+for(let i=0; i<headerRowChildrenEls.length; i++){
+    if(!(headerRowChildrenEls[i].innerHTML==='')){
+        headerRowChildrenEls[i].addEventListener('click', function(){
+            //event.preventDefault();
+            //console.log(i);
+            //const key = tableBodyEl.rows[i-1].cells[i-1].className;
+            //const sortedArray = sortByKey(key);
+            //localStorage.setItem('allContractsData', JSON.stringify(sortedArray));
+            //console.log(sortedArray);
+            //renderContractList();
+            sortData(headerRowChildrenEls[i].id)
+        }, false);
+    }
+}
+
+function sortData(key){
+    const sortedArray = sortByKey(key);
+    localStorage.setItem('allContractsData', JSON.stringify(sortedArray));
+    //console.log(sortedArray);
+    renderContractList();
+}
 
 // Remove table data
 function removeTableData(){
@@ -105,8 +123,3 @@ function removeTableData(){
         }
     }
 }
-
-// Add a new contract when the 'New Contract' button is clicked
-addButtonEl.addEventListener('click', function() {
-    redirectPage('./form.html');
-});

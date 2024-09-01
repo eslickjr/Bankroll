@@ -20,7 +20,11 @@ function redirectPage(redirectUrl) {
 function deleteRow(i){
     const allContractsData = readContractsData();
     allContractsData.splice(i,1);
+    if(allContractsData==''){
+        noContracts();
+    }
     localStorage.setItem('allContractsData', JSON.stringify(allContractsData));
+    renderContractList()
 }
 
 // Function to sort an array of objects by key
