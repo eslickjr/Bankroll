@@ -90,6 +90,7 @@ addButtonEl.addEventListener('click', function() {
 // // Add sorting functionality
 const headerRowChildrenEls = document.querySelectorAll('th');
 for(let i=0; i<headerRowChildrenEls.length; i++){
+    let sortStatus = true;
     if(!(headerRowChildrenEls[i].innerHTML==='')){
         headerRowChildrenEls[i].addEventListener('click', function(){
             //event.preventDefault();
@@ -99,13 +100,19 @@ for(let i=0; i<headerRowChildrenEls.length; i++){
             //localStorage.setItem('allContractsData', JSON.stringify(sortedArray));
             //console.log(sortedArray);
             //renderContractList();
-            sortData(headerRowChildrenEls[i].id)
+            headerRowChildrenEls.forEach(header => header.classList.remove('active'));
+            headerRowChildrenEls[i].classList.add('active');
+            // toggle the asc class when clicking
+            headerRowChildrenEls[i].classList.toggle('asc', sortStatus);
+            // it the header contains the class asc; remove it after click
+            sortStatus = headerRowChildrenEls[i].classList.contains('asc') ? false : true;
+            sortData(headerRowChildrenEls[i].id, sortStatus);
         }, false);
     }
 }
 
-function sortData(key){
-    const sortedArray = sortByKey(key);
+function sortData(key, sortStatus){
+    const sortedArray = sortByKey(key, sortStatus);
     localStorage.setItem('allContractsData', JSON.stringify(sortedArray));
     //console.log(sortedArray);
     renderContractList();
