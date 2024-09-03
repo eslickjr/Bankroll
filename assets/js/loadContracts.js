@@ -4,7 +4,7 @@ const addButtonEl = document.getElementById('add-new');
 const tableBodyEl = document.querySelector('tbody');
 
 // Create a function that builds a table row
-function buildRows(contractData,i){
+function buildRows(contractData, i){
     const tableRow = document.createElement('tr');
     const tdIdEl = document.createElement('td');
     tdIdEl.classList.add('contractID');
@@ -61,7 +61,7 @@ function buildRows(contractData,i){
 }
 
 // Create a function that handles the case where there are no contracts
-function noContracts() {
+function noContracts(){
     console.log("executed properly");
 }
 
@@ -69,7 +69,7 @@ function noContracts() {
 function renderContractList() {
     removeTableData();
     const contractData = readContractsData();
-    if (contractData == '') {
+    if(contractData == ''){
         noContracts();
     } else {
         for (let i=0; i<contractData.length; i++){
@@ -82,11 +82,11 @@ function renderContractList() {
 // Call the renderContractList() function
 renderContractList()
 
-
 // Add a new contract when the 'New Contract' button is clicked
-addButtonEl.addEventListener('click', function () {
+addButtonEl.addEventListener('click', function() {
     redirectPage('./form.html');
 });
+
 
 // // Add sorting functionality
 const headerRowChildrenEls = document.querySelectorAll('th');
@@ -103,10 +103,10 @@ for(let i=0; i<headerRowChildrenEls.length; i++){
             //renderContractList();
             headerRowChildrenEls.forEach(header => header.classList.remove('active'));
             headerRowChildrenEls[i].classList.add('active');
-            // toggle the asc class when clicking
-            headerRowChildrenEls[i].classList.toggle('asc', sortStatus);
-            // it the header contains the class asc; remove it after click
-            sortStatus = headerRowChildrenEls[i].classList.contains('asc') ? false : true;
+            // toggle the dsc class when clicking
+            headerRowChildrenEls[i].classList.toggle('dsc', sortStatus);
+            // it the header contains the class dsc; remove it after click
+            sortStatus = headerRowChildrenEls[i].classList.contains('dsc') ? false : true;
             sortData(headerRowChildrenEls[i].id, sortStatus);
         }, false);
     }

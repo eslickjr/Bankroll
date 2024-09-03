@@ -19,6 +19,6 @@ thead th.active span.sort-arrow{
     background-color: darkblue;
 }
 
-thead th.asc span.sort-arrow{
+thead th.dsc span.sort-arrow{
     transform: rotate(180deg);
 }
