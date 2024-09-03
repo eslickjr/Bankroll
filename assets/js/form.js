@@ -7,33 +7,38 @@ function submitContract() {
     const contractID = document.getElementById('contractId').value.trim();
     const vendor = document.getElementById('vendor').value.trim();
     const contractValue = document.getElementById('contractValue').value.trim();
-    const startDate = document.getElementById('startDate').value;
-    const endDate = document.getElementById('endDate').value;
+    const startDate = new Date(document.getElementById('startDate').value);
+    const endDate = new Date(document.getElementById('endDate').value);
     const errorMessage = document.getElementById('errorMessage');
-    if (isNaN(Number(contractID)) || contractID.trim() === '') {
-        alert('Contract ID should be a number.');
+
+    if(contractID==''){
+        errorMessage.textContent = 'Please enter a contract ID.';
         return;
-    }
-    if (isNaN(Number(contractValue)) || contractValue.trim() === '') {
-        alert('Contract value should be a number.');
+    } else if(vendor==''){
+        errorMessage.textContent = 'Please enter a vendor.';
         return;
-    }
-    if(startDate === endDate){
-        alert('Start date and end date cannot be the same.');
+    } else if(contractValue==''){
+        errorMessage.textContent = 'Please enter a contract value.';
         return;
-    }else if(endDate < startDate){
-        alert('End date cannot be before the start date.');
+    } else if(isNaN(contractValue)){
+        errorMessage.textContent = 'Please enter a number for the contract value.';
         return;
-    }
-    if (contractID === '' || vendor === '' || contractValue === '' || startDate === '' || endDate === '') {
-        errorMessage.textContent = 'All fields must be filled out to create a new contract.'
-    } else {
+    } else if(startDate=='Invalid Date'){
+        errorMessage.textContent = 'Please enter a start date for the contract.';
+        return;
+    } else if(endDate=='Invalid Date'){
+        errorMessage.textContent = 'Please enter an end date for the contract.';
+        return;
+    } else if(startDate.getTime() > endDate.getTime()){
+        errorMessage.textContent = 'End date must be after start date.';
+        return;
+    } else{
         const contractInfo = {};
-        contractInfo.contractID = contractID;
-        contractInfo.vendor = vendor;
-        contractInfo.contractValue = contractValue;
-        contractInfo.startDate = startDate;
-        contractInfo.endDate = endDate;
+            contractInfo.contractID = contractID;
+            contractInfo.vendor = vendor;
+            contractInfo.contractValue = contractValue;
+            contractInfo.startDate = startDate.toISOString().split('T')[0];
+            contractInfo.endDate = endDate.toISOString().split('T')[0];
 
         storeContractInfo(contractInfo);
         //TODO redirect to the landing page
