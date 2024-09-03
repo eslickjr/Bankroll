@@ -4,7 +4,7 @@ const addButtonEl = document.getElementById('add-new');
 const tableBodyEl = document.querySelector('tbody');
 
 // Create a function that builds a table row
-function buildRows(contractData,i){
+function buildRows(contractData, i){
     const tableRow = document.createElement('tr');
     const tdIdEl = document.createElement('td');
     tdIdEl.classList.add('contractID');
@@ -88,6 +88,7 @@ addButtonEl.addEventListener('click', function () {
     redirectPage('./form.html');
 });
 
+
 // // Add sorting functionality
 const headerRowChildrenEls = document.querySelectorAll('th');
 for(let i=0; i<headerRowChildrenEls.length; i++){
@@ -103,10 +104,10 @@ for(let i=0; i<headerRowChildrenEls.length; i++){
             //renderContractList();
             headerRowChildrenEls.forEach(header => header.classList.remove('active'));
             headerRowChildrenEls[i].classList.add('active');
-            // toggle the asc class when clicking
-            headerRowChildrenEls[i].classList.toggle('asc', sortStatus);
-            // it the header contains the class asc; remove it after click
-            sortStatus = headerRowChildrenEls[i].classList.contains('asc') ? false : true;
+            // toggle the dsc class when clicking
+            headerRowChildrenEls[i].classList.toggle('dsc', sortStatus);
+            // it the header contains the class dsc; remove it after click
+            sortStatus = headerRowChildrenEls[i].classList.contains('dsc') ? false : true;
             sortData(headerRowChildrenEls[i].id, sortStatus);
         }, false);
     }
