@@ -61,7 +61,7 @@ function buildRows(contractData,i){
 }
 
 // Create a function that handles the case where there are no contracts
-function noContracts(){
+function noContracts() {
     console.log("executed properly");
 }
 
@@ -69,7 +69,7 @@ function noContracts(){
 function renderContractList() {
     removeTableData();
     const contractData = readContractsData();
-    if(contractData == ''){
+    if (contractData == '') {
         noContracts();
     } else {
         for (let i=0; i<contractData.length; i++){
@@ -82,11 +82,11 @@ function renderContractList() {
 // Call the renderContractList() function
 renderContractList()
 
+
 // Add a new contract when the 'New Contract' button is clicked
-addButtonEl.addEventListener('click', function() {
+addButtonEl.addEventListener('click', function () {
     redirectPage('./form.html');
 });
-
 
 // // Add sorting functionality
 const headerRowChildrenEls = document.querySelectorAll('th');
