@@ -20,6 +20,7 @@ function buildRows(contractData,i){
     //create the button
     const delButtonEl = document.createElement('BUTTON');
     delButtonEl.className += 'delete-button';
+    delButtonEl.innerText = 'Delete';
     //do not need id's for now
     //delButtonEl.id = contractData.contractID;
 
