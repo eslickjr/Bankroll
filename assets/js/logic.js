@@ -34,7 +34,6 @@ function sortByKey(key, sortStatus){
         const sortedArray = originalArray.sort(function(a,b){
             let x=a[key];
             let y=b[key];
-            console.log(x<y, x>y)
             return ((x<y) ? -1 : ((x>y) ? 1 : 0));
         })
         return sortedArray;
@@ -42,7 +41,6 @@ function sortByKey(key, sortStatus){
         const sortedArray = originalArray.sort(function(a,b){
             let x=a[key];
             let y=b[key];
-            console.log(x<y, x>y)
             return ((x<y) ? 1 : ((x>y) ? -1 : 0));
         })
         return sortedArray;

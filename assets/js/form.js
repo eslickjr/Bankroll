@@ -7,19 +7,38 @@ function submitContract(){
     const contractID = document.getElementById('contractId').value.trim();
     const vendor = document.getElementById('vendor').value.trim();
     const contractValue = document.getElementById('contractValue').value.trim();
-    const startDate = document.getElementById('startDate').value;
-    const endDate = document.getElementById('endDate').value;
+    const startDate = new Date(document.getElementById('startDate').value);
+    const endDate = new Date(document.getElementById('endDate').value);
     const errorMessage = document.getElementById('errorMessage');
 
-    if(contractID==='' || vendor==='' || contractValue==='' || startDate==='' || endDate===''){
-        errorMessage.textContent = 'All fields must be filled out to create a new contract.'
+    if(contractID==''){
+        errorMessage.textContent = 'Please enter a contract ID.';
+        return;
+    } else if(vendor==''){
+        errorMessage.textContent = 'Please enter a vendor.';
+        return;
+    } else if(contractValue==''){
+        errorMessage.textContent = 'Please enter a contract value.';
+        return;
+    } else if(isNaN(contractValue)){
+        errorMessage.textContent = 'Please enter a number for the contract value.';
+        return;
+    } else if(startDate=='Invalid Date'){
+        errorMessage.textContent = 'Please enter a start date for the contract.';
+        return;
+    } else if(endDate=='Invalid Date'){
+        errorMessage.textContent = 'Please enter an end date for the contract.';
+        return;
+    } else if(startDate.getTime() > endDate.getTime()){
+        errorMessage.textContent = 'End date must be after start date.';
+        return;
     } else{
         const contractInfo = {};
             contractInfo.contractID = contractID;
             contractInfo.vendor = vendor;
             contractInfo.contractValue = contractValue;
-            contractInfo.startDate = startDate;
-            contractInfo.endDate = endDate;
+            contractInfo.startDate = startDate.toISOString().split('T')[0];
+            contractInfo.endDate = endDate.toISOString().split('T')[0];
 
         storeContractInfo(contractInfo);
         //TODO redirect to the landing page
