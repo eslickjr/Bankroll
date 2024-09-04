@@ -16,15 +16,18 @@ function redirectPage(redirectUrl) {
     location.assign(redirectUrl);
 } 
 
-// Function to remove a row from the local storage
-function deleteRow(i){
-    const allContractsData = readContractsData();
-    allContractsData.splice(i,1);
-    if(allContractsData==''){
-        noContracts();
+// Function to remove a row from the local storage with confirmation
+function deleteRow(i) {
+    const userConfirmed = confirm("Are you sure you want to delete this contract?");
+    if (userConfirmed) {
+        const allContractsData = readContractsData();
+        allContractsData.splice(i, 1);
+        if (allContractsData.length === 0) {
+            noContracts();
+        }
+        localStorage.setItem('allContractsData', JSON.stringify(allContractsData));
+        renderContractList();
     }
-    localStorage.setItem('allContractsData', JSON.stringify(allContractsData));
-    renderContractList()
 }
 
 // Function to sort an array of objects by key
