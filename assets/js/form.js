@@ -1,6 +1,14 @@
 // TODO: Create a variable that selects the form element
 const formEl = document.querySelector('form');
 const backButtonEl = document.getElementById('back-button');
+const contractValueEl = document.getElementById('contractValue');
+//Add event listener to the contract value input to limit the number of decimal places  
+contractValueEl.addEventListener('input', function() {
+    let t = this.value;
+    if (t.indexOf(".") >= 0 ) {
+        this.value = t.slice(0, t.indexOf(".") + 3);
+    }
+});
 
 // TODO: Create a function that handles the form submission. Grab the form data and store it in local storage, then redirect to the blog page using the `redirectPage` function. If the form is submitted with missing data, display an error message to the user.
 function submitContract() {
