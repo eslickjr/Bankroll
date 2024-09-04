@@ -9,7 +9,9 @@
   <title>Contract Tracking</title>
 
   <!-- TODO: add and link styles -->
-  <!-- <link rel="stylesheet" href="./assets/css/styles.css" /> -->
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css" />
 
   <link rel="stylesheet" href="./assets/css/arrow.css" />
   <script defer src="./assets/js/logic.js" type="text/javascript"></script>
@@ -25,12 +27,20 @@
   </header>
 
   <main>
-    <section>
+    <section id="table-container">
+      <table id="table-delete">
+        <thead>
+          <tr id="table-delete-header">
+            <th class = 'delButCol'></th>
+          </tr>
+        </thead>
+        <tbody id="table-delete-body">
+        </tbody>
+      </table>
       <table id="table-start">
         <thead>
         <tr id="table-header">
           <!-- first row is a placeholder -->
-          <th></th>
           <th id="contractID">Contract ID <span class="sort-arrow">&UpArrow;</span></th>
           <th id="vendor">Vendor Name <span class="sort-arrow">&UpArrow;</span></th>
           <th id="contractValue">Contract Value ($) <span class="sort-arrow">&UpArrow;</span></th>

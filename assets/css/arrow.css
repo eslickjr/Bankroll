@@ -4,13 +4,13 @@ thead th:hover{
 
 thead th span.sort-arrow{
     display: inline-block;
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 1em;
+    height: 1em;
     border-radius: 50%;
     border: 1px solid;
     text-align: center;
-    font-size: .8rem;
-    margin-left: .2rem;
+    font-size: .8em;
+    margin-left: .2em;
     transition: .1s ease-in-out;
 }
 
