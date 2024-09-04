@@ -1,11 +1,15 @@
 // Get elements
 const mainEl = document.querySelector('main');
 const addButtonEl = document.getElementById('add-new');
-const tableBodyEl = document.querySelector('tbody');
+const tableBodyEl = document.getElementById('table-body');
+const tableDeleteBodyEl = document.getElementById('table-delete-body');
 
 // Create a function that builds a table row
 function buildRows(contractData, i){
+    const tableDeleteRow = document.createElement('tr');
     const tableRow = document.createElement('tr');
+    const tdDelEl = document.createElement('td');
+    tdDelEl.classList.add('delButCol');
     const tdIdEl = document.createElement('td');
     tdIdEl.classList.add('contractID');
     const tdVendorEl = document.createElement('td');
@@ -19,8 +23,8 @@ function buildRows(contractData, i){
 
     //create the button
     const delButtonEl = document.createElement('BUTTON');
-    delButtonEl.className += 'delete-button';
-    delButtonEl.innerText = 'Delete';
+    delButtonEl.className += 'delete-button fa';
+    delButtonEl.innerHTML = '&#xf014;';
     //do not need id's for now
     //delButtonEl.id = contractData.contractID;
 
@@ -31,8 +35,13 @@ function buildRows(contractData, i){
     tdStartEl.innerText = contractData.startDate;
     tdEndEl.innerText = contractData.endDate;
 
+    //adding the columns to the new delete row
+    tdDelEl.appendChild(delButtonEl);
+    tableDeleteRow.appendChild(tdDelEl);
+    //adding row to the existing delete table
+    tableDeleteBodyEl.appendChild(tableDeleteRow);
+    
     //adding the columns to the new row
-    tableRow.appendChild(delButtonEl);
     tableRow.appendChild(tdIdEl);
     tableRow.appendChild(tdVendorEl);
     tableRow.appendChild(tdValueEl);
@@ -121,12 +130,12 @@ function sortData(key, sortStatus){
 
 // Remove table data
 function removeTableData(){
-    const tableData=document.querySelector('tbody');
-    for(let i=0; i<tableData.rows.length; i++){
-        if(tableData.rows[i].id === 'table-header'){
+    for(let i=0; i<tableBodyEl.rows.length; i++){
+        if(tableBodyEl.rows[i].id === 'table-header'){
             console.log('true');
         } else{
-            tableData.rows[i].remove();
+            tableBodyEl.rows[i].remove();
+            tableDeleteBodyEl.rows[i].remove();
             i--;
         }
     }

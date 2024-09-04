@@ -1,0 +1,133 @@
+/*main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+*/
+
+:root {
+    --idle: rgb(173, 216, 230);
+    --hover: rgb(141, 184, 198);
+    --active: rgb(109, 152, 166);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2vh 0;
+}
+
+header h1 {
+    font-size: 2em;
+}
+
+#add-new {
+    border-radius: 25px;
+    background-color: var(--idle);
+}
+
+#add-new:hover {
+    background-color: var(--hover);
+    cursor: pointer;
+}
+
+#add-new:active {
+    background-color: var(--active);
+}
+
+#newContract {
+    display: block;
+    float: none;
+    margin: 1vh 20vw 1vh auto;
+}
+
+#table-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#table-start {
+    width: 80%;
+    border-collapse: collapse;
+    box-shadow: 0 0 5px 5px lightgrey;
+}
+
+th, td {
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: lightyellow;
+}
+
+.button {
+    border: 0;
+    background-color: white;
+}
+
+.delButCol {
+    border: none;
+    background-color: white;
+    display: flex;
+    height: 1em;
+}
+
+.delete-button {
+    margin: auto;
+    border-radius: 25px;
+    background-color: var(--idle);
+}
+
+.delete-button:hover {
+    background-color: var(--hover);
+    cursor: pointer;
+}
+
+.delete-button:active {
+    background-color: var(--active);
+}
+
+footer {
+    text-align: center;
+    margin: 5vh 0;
+}
+/*
+#bankrollHeader {
+    display: flex;
+    display: row;
+    justify-content: space-around;
+}
+
+#bankrollTitle {
+    margin: auto 0;
+    font-size: 2em;
+}
+
+#newButton {
+    padding: 10px;
+    height: 20%;
+}
+
+table {
+    border-collapse: collapse;
+    justify-content: center;
+    width: 80%;
+}
+
+td, th {
+    padding: 5px;
+}
+
+td:nth-child(even) {
+    background-color: lightyellow;
+}
+*/

@@ -8,8 +8,8 @@
   <title>Contract Input Form</title>
 
   <!-- <link rel="stylesheet" href="./reset.css"/> -->
-  <!-- <link rel="stylesheet" href="./assets/css/styles.css" /> -->
-  <!-- <link rel="stylesheet" href="./assets/css/blog.css" /> -->
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="./assets/css/formStyle.css" />
 
   <script defer src="./assets/js/form.js" type="text/javascript"></script>
   <script defer src="./assets/js/logic.js" type="text/javascript"></script>
@@ -27,27 +27,37 @@
     <!-- creating a section for the form; probably not needed -->
     <section>
         <form>
-            <label for="contractId">Contract ID</label>
-            <input name="contractId" id="contractId" type="text" placeholder="Contract ID">
+            <div>
+                <label for="contractId">Contract ID</label>
+                <input name="contractId" id="contractId" type="text" placeholder="Contract ID">
+            </div>
 
-            <label for="vendor">Vendor</label>
-            <input name="vendor" id="vendor" type="text" placeholder="Vendor Name">
+            <div>
+                <label for="vendor">Vendor</label>
+                <input name="vendor" id="vendor" type="text" placeholder="Vendor Name">
+            </div>
 
-            <!-- note the input type here should be "number" -->
-            <label for="contractValue">Contract Value</label>
-            <input name="contractValue" id="contractValue" type="text" placeholder="Contract Value">
+            <div>
+                <!-- note the input type here should be "number" -->
+                <label for="contractValue">Contract Value</label>
+                <input name="contractValue" id="contractValue" type="number" placeholder="Contract Value">
+            </div>
 
-            <!-- note the input type here should be "date" -->
-            <label for="startDate">Start Date</label>
-            <input name="startDate" id="startDate" type="date" placeholder="Start Date">
+            <div>
+                <!-- note the input type here should be "date" -->
+                <label for="startDate">Start Date</label>
+                <input name="startDate" id="startDate" type="date" placeholder="Start Date">
 
-            <!-- note the input type here should be "date" -->
-            <label for="endDate">End Date</label>
-            <input name="endDate" id="endDate" type="date" placeholder="End Date">
-            <button id="submit-contract">Submit</button>
+                <!-- note the input type here should be "date" -->
+                <label for="endDate">End Date</label>
+                <input name="endDate" id="endDate" type="date" placeholder="End Date">
+            </div>
+            <div>
+                <button id="submit-contract">Submit</button>
+                <p id="errorMessage"></p>
+            </div>
         </form>
     </section>
-    <p id="errorMessage"></p>
    </main>
 
    <footer>

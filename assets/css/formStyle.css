@@ -1,0 +1,76 @@
+:root {
+    --idle: rgb(173, 216, 230);
+    --hover: rgb(141, 184, 198);
+    --active: rgb(109, 152, 166);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2vh 0;
+}
+
+header h1 {
+    font-size: 2em;
+}
+
+#back-button {
+    border-radius: 25px;
+    width: 92.225px;
+    background-color: var(--idle);
+}
+
+#back-button:hover {
+    background-color: var(--hover);
+    cursor: pointer;
+}
+
+#back-button:active {
+    background-color: var(--active);
+}
+
+form {
+    margin: 0 auto 0 auto;
+    border-radius: 25px;
+    width: 60%;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 5px black;
+}
+
+form div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 1vh 0 1vh 5vw;
+}
+
+form div p {
+    margin-left: 1vw;
+    color: darkred;
+}
+
+#startDate {
+    margin-right: 1vw;
+}
+
+#submit-contract {
+    border-radius: 25px;
+    background-color: rgb(255, 255, 224);
+}
+
+#submit-contract:hover {
+    cursor: pointer;
+    background-color: rgb(223, 223, 192);
+}
+
+#submit-contract:active {
+    background-color: rgb(191, 191, 160);
+}
+
+footer {
+    text-align: center;
+    margin: 5vh 0;
+}
