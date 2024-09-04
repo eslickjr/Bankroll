@@ -19,14 +19,14 @@ function submitContract() {
     const startDate = new Date(document.getElementById('startDate').value);
     const endDate = new Date(document.getElementById('endDate').value);
     const errorMessage = document.getElementById('errorMessage');
-
-    if (contractID == '') {
+    //Form validation
+    if (contractID === '') {
         errorMessage.textContent = 'Please enter a contract ID.';
         return;
-    } else if (vendor == '') {
+    } else if (vendor === '') {
         errorMessage.textContent = 'Please enter a vendor.';
         return;
-    } else if (contractValue == '') {
+    } else if (contractValue === '') {
         errorMessage.textContent = 'Please enter a contract value.';
         return;
     } else if (isNaN(contractValue)) {
@@ -51,8 +51,39 @@ function submitContract() {
 
         storeContractInfo(contractInfo);
         //TODO redirect to the landing page
-        redirectPage('./index.html');
+        // redirectPage('./index.html');
+        Swal.fire({
+            title: 'Are you sure ?',
+            text: 'Do you want to add this contract?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ok, add it!',
+            cancelButtonText: 'No,Cancel',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                successMessage('Contract successfully added!', './index.html');
+            }
+            else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Cancelled',
+                    'Contract not added :)',
+                    'error'
+                )
+            }
+        });
     }
+}
+
+//Function to display success message and redirect to the landing page
+function successMessage(message, redirectUrl) {
+    Swal.fire({
+        title: 'Success!',
+        text: message,
+        icon: 'success',
+        confirmButtonText: 'OK'
+    }).then(() => {
+        redirectPage(redirectUrl);
+    });
 }
 
 // TODO: Add an event listener to the form on submit. Call the function to handle the form submission.
@@ -61,7 +92,6 @@ formEl.addEventListener('submit', function (event) {
     submitContract();
     /*alert('Contract successfully added!');*/
 });
-
 // When a user clicks on the 'Back' button, take them back to the contract list screen
 backButtonEl.addEventListener('click', function () {
     redirectPage('./index.html');
