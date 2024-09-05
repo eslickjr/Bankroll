@@ -18,15 +18,15 @@ function redirectPage(redirectUrl) {
 
 // Function to remove a row from the local storage with confirmation
 function deleteRow(i) {
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "Do you want to delete this contract?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'No, cancel!',
-    }).then((result) => {
-        if (result.isConfirmed) {
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this contract!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
             const allContractsData = readContractsData();
             allContractsData.splice(i, 1);
             if (allContractsData.length === 0) {
@@ -34,20 +34,15 @@ function deleteRow(i) {
             }
             localStorage.setItem('allContractsData', JSON.stringify(allContractsData));
             renderContractList();
-            Swal.fire(
-                'Deleted!',
-                'Your contract has been deleted.',
-                'success'
-            );
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-            Swal.fire(
-                'Cancelled',
-                'Your contract is safe :)',
-                'error'
-            );
+            swal("The contract has been deleted!", {
+                icon: "success",
+            });
+        } else {
+            swal("Your contract is safe!");
         }
     });
 }
+
 
 // Function to sort an array of objects by key
 function sortByKey(key, sortStatus) {
