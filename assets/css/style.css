@@ -44,6 +44,12 @@ header {
     box-shadow: 0 0 5px 5px lightgrey;
 }
 
+/* Set table header to pointer and change color when hovered */
+thead th:hover {
+    color: rgb(141, 184, 198);
+    cursor: pointer;
+}
+
 /* Set table head and data to have border with padding */
 th, td {
     border: 1px solid gray;

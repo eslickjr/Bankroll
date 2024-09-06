@@ -1,5 +1,0 @@
-/* Set table header to pointer and change color when hovered */
-thead th:hover {
-    color: rgb(141, 184, 198);
-    cursor: pointer;
-}

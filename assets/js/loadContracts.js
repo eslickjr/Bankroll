@@ -47,7 +47,7 @@ function buildRows(contractData, i){
 
 // Create a function that handles the case where there are no contracts
 function noContracts(){
-    console.log("executed properly");
+    console.log("No contracts in local storage.");
 }
 
 // Create a function that renders the list of contracts if they exist or call the noContracts function
@@ -117,11 +117,7 @@ function sortData(key, sortStatus){
 // Remove table data
 function removeTableData(){
     for(let i=0; i<tableBodyEl.rows.length; i++){
-        if(tableBodyEl.rows[i].id === 'tableHeader'){
-            console.log('true');
-        } else{
             tableBodyEl.rows[i].remove();
             i--;
-        }
     }
 }
