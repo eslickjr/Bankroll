@@ -53,7 +53,7 @@ function sortByKey(key, sortStatus) {
             let x = a[key];
             let y = b[key];
             let check = x - y;
-            return ((check < 0) ? -1 : ((check > 1) ? 1 : 0));
+            return ((check < 0) ? 1 : ((check > 1) ? -1 : 0));
         })
         return sortedArray;
     } else if (key === 'contractValue' && !(sortStatus == true)) {
@@ -61,21 +61,21 @@ function sortByKey(key, sortStatus) {
             let x = a[key];
             let y = b[key];
             let check = x - y;
-            return ((check > 0) ? -1 : ((check < 1) ? 1 : 0));
+            return ((check > 0) ? 1 : ((check < 1) ? -1 : 0));
         })
         return sortedArray;
     } else if (!(key === 'contractValue') && sortStatus == true) {
         const sortedArray = originalArray.sort(function (a, b) {
             let x = a[key].toUpperCase();
             let y = b[key].toUpperCase();
-            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+            return ((x < y) ? 1 : ((x > y) ? -1 : 0));
         })
         return sortedArray;
     } else {
         const sortedArray = originalArray.sort(function (a, b) {
             let x = a[key].toUpperCase();
             let y = b[key].toUpperCase();
-            return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
         })
         return sortedArray;
     }
