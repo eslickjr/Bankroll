@@ -1,6 +1,6 @@
 // TODO: Create a variable that selects the form element
 const formEl = document.querySelector('form');
-const backButtonEl = document.getElementById('back-button');
+const backButtonEl = document.getElementById('backButton');
 const contractValueEl = document.getElementById('contractValue');
 
 //Add event listener to the contract value input to limit the number of decimal places  

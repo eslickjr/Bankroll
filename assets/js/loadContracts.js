@@ -2,7 +2,7 @@
 const mainEl = document.querySelector('main');
 const addButtonEl = document.getElementById('add-new');
 const tableBodyEl = document.getElementById('table-body');
-const tableDeleteBodyEl = document.getElementById('table-delete-body');
+const tableDeleteBodyEl = document.getElementById('tableDeleteBody');
 
 // Create a function that builds a table row
 function buildRows(contractData, i){
@@ -25,8 +25,6 @@ function buildRows(contractData, i){
     const delButtonEl = document.createElement('BUTTON');
     delButtonEl.className += 'delete-button fa';
     delButtonEl.innerHTML = '&#xf014;';
-    //do not need id's for now
-    //delButtonEl.id = contractData.contractID;
 
     //add content to the th elements
     tdIdEl.innerText = contractData.contractID;
@@ -53,20 +51,6 @@ function buildRows(contractData, i){
     delButtonEl.addEventListener('click', function(){
         deleteRow(i)
     });
-    // Add event listener to delete a contract when the delete button is clicked
-    // Get all delete buttons by class
-    /*
-    const deleteButtonEls = document.querySelectorAll('.delete-button');
-
-    // Loop through the array and add an event listener to each button
-    for (let i=0; i<deleteButtonEls.length; i++){
-        deleteButtonEls[i].addEventListener('click', function(event){
-            //event.preventDefault();
-            //event.target.closest('tr').remove();
-            deleteRow(i);
-        }, false);
-    }
-    */
 }
 
 // Create a function that handles the case where there are no contracts
@@ -103,13 +87,6 @@ for(let i=0; i<headerRowChildrenEls.length; i++){
     let sortStatus = true;
     if(!(headerRowChildrenEls[i].innerHTML==='')){
         headerRowChildrenEls[i].addEventListener('click', function(){
-            //event.preventDefault();
-            //console.log(i);
-            //const key = tableBodyEl.rows[i-1].cells[i-1].className;
-            //const sortedArray = sortByKey(key);
-            //localStorage.setItem('allContractsData', JSON.stringify(sortedArray));
-            //console.log(sortedArray);
-            //renderContractList();
             headerRowChildrenEls.forEach(header => header.classList.remove('active'));
             headerRowChildrenEls[i].classList.add('active');
             // toggle the dsc class when clicking
@@ -124,14 +101,13 @@ for(let i=0; i<headerRowChildrenEls.length; i++){
 function sortData(key, sortStatus){
     const sortedArray = sortByKey(key, sortStatus);
     localStorage.setItem('allContractsData', JSON.stringify(sortedArray));
-    //console.log(sortedArray);
     renderContractList();
 }
 
 // Remove table data
 function removeTableData(){
     for(let i=0; i<tableBodyEl.rows.length; i++){
-        if(tableBodyEl.rows[i].id === 'table-header'){
+        if(tableBodyEl.rows[i].id === 'tableHeader'){
             console.log('true');
         } else{
             tableBodyEl.rows[i].remove();
