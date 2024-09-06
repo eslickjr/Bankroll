@@ -48,13 +48,13 @@ header h1 {
     margin: 1vh 20vw 1vh auto;
 }
 
-#table-container {
+#tableContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-#table-start {
+#tableStart {
     width: 80%;
     border-collapse: collapse;
     box-shadow: 0 0 5px 5px lightgrey;
@@ -100,6 +100,7 @@ footer {
     text-align: center;
     margin: 5vh 0;
 }
+
 /*
 #bankrollHeader {
     display: flex;
