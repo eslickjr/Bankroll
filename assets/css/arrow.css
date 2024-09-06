@@ -1,24 +1,5 @@
-thead th:hover{
+/* Set table header to pointer and change color when hovered */
+thead th:hover {
+    color: rgb(141, 184, 198);
     cursor: pointer;
-}
-
-thead th span.sort-arrow{
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    border: 1px solid;
-    text-align: center;
-    font-size: .8em;
-    margin-left: .2em;
-    transition: .1s ease-in-out;
-}
-
-thead th.active span.sort-arrow{
-    color: white;
-    background-color: darkblue;
-}
-
-thead th.dsc span.sort-arrow{
-    transform: rotate(180deg);
 }

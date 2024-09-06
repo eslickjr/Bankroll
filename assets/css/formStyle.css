@@ -1,9 +1,11 @@
+/* Set some general variables */
 :root {
     --idle: rgb(173, 216, 230);
     --hover: rgb(141, 184, 198);
     --active: rgb(109, 152, 166);
 }
 
+/* Set header to be flexed in a row */
 header {
     display: flex;
     flex-direction: row;
@@ -11,25 +13,18 @@ header {
     margin: 2vh 0;
 }
 
-header h1 {
-    font-size: 2em;
+/* Set header h1 font size */
+.dh1 {
+    font-size: 3em;
 }
 
+/* Set back button to rounded with larger width */
 #backButton {
     border-radius: 25px;
-    width: 92.225px;
-    background-color: var(--idle);
+    width: 5em;
 }
 
-#backButton:hover {
-    background-color: var(--hover);
-    cursor: pointer;
-}
-
-#backButton:active {
-    background-color: var(--active);
-}
-
+/* set form to margins, rounded, 60% width, light blue, flex, with box shadow */
 form {
     margin: 0 auto 0 auto;
     border-radius: 25px;
@@ -40,6 +35,7 @@ form {
     box-shadow: 0 0 5px black;
 }
 
+/* Set divs to align in row with margin above below and to left */
 form div {
     display: flex;
     flex-direction: row;
@@ -47,30 +43,64 @@ form div {
     margin: 1vh 0 1vh 5vw;
 }
 
+/* Set labels to have a min width to align textboxes */
+label {
+    width: 7em;
+}
+
+/* Set error message to have dark red */
 form div p {
     margin-left: 1vw;
     color: darkred;
 }
 
+/* Set start date to have left margin */
 #startDate {
     margin-right: 1vw;
 }
 
-#submit-contract {
+/* Set submit idle border to black and font to black with rounded radius */
+#submitContract {
+    border-color: black;
+    color: black;
     border-radius: 25px;
-    background-color: rgb(255, 255, 224);
+    /*background-color: rgb(255, 255, 224);*/
 }
 
-#submit-contract:hover {
-    cursor: pointer;
-    background-color: rgb(223, 223, 192);
+/* Set submit hover and active to light yellow border and background */
+#submitContract:hover, #submitContract:active {
+    border-color: lightyellow;
+    background-color: lightyellow;
 }
 
-#submit-contract:active {
-    background-color: rgb(191, 191, 160);
-}
-
+/* Set footer to text align center with margin */
 footer {
     text-align: center;
     margin: 5vh 0;
+}
+
+/* Set format for smaller devices */
+@media (max-width: 472px) {
+    /* Set header to flex and column */
+    #formHeader {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Set header children to have margin above and below and be centered */
+    #formHeader * {
+        margin: 1vh auto;
+    }
+
+    /* Decrease font size for form Header H1 */
+    #formHeader h1 {
+        font-size: 2em;
+    }
+
+    /* Set form divs to align in a column with 80% of container width and margins between */
+    form div {
+        flex-direction: column;
+        margin: 1vh auto;
+        width: 80%;
+    }
 }

@@ -1,22 +1,11 @@
-/*main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-main section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-*/
-
+/* Set variables for general colors */
 :root {
     --idle: rgb(173, 216, 230);
     --hover: rgb(141, 184, 198);
     --active: rgb(109, 152, 166);
 }
 
+/* Set header to flex with margin */
 header {
     display: flex;
     flex-direction: row;
@@ -24,111 +13,75 @@ header {
     margin: 2vh 0;
 }
 
-header h1 {
-    font-size: 2em;
+/* Set font size to 3em for h1 */
+.dh1 {
+    font-size: 3em;
 }
 
-#add-new {
+/* Set border radius for rounded edges to new contract button */
+#addNew {
     border-radius: 25px;
-    background-color: var(--idle);
 }
 
-#add-new:hover {
-    background-color: var(--hover);
-    cursor: pointer;
-}
-
-#add-new:active {
-    background-color: var(--active);
-}
-
+/* Set new Contract button margins */
 #newContract {
     display: block;
     float: none;
     margin: 1vh 20vw 1vh auto;
 }
 
+/* Set table in a row centered */
 #tableContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
+/* Set table to 80% of the page with no borders between cells and a box shadow behind */
 #tableStart {
     width: 80%;
     border-collapse: collapse;
     box-shadow: 0 0 5px 5px lightgrey;
 }
 
+/* Set table head and data to have border with padding */
 th, td {
     border: 1px solid gray;
     padding: 5px;
 }
 
+/* Set even children on the table to yellow */
 tr:nth-child(even) {
     background-color: lightyellow;
 }
 
-.button {
-    border: 0;
-    background-color: white;
-}
-
-.delButCol {
-    border: none;
-    background-color: white;
-    display: flex;
-    height: 1em;
-}
-
-.delete-button {
-    margin: auto;
+/* Set delete button outside of table lines with rounded borders */
+.deleteButton {
+    margin-left: -3em;
+    position: absolute;
     border-radius: 25px;
-    background-color: var(--idle);
 }
 
-.delete-button:hover {
-    background-color: var(--hover);
-    cursor: pointer;
-}
-
-.delete-button:active {
-    background-color: var(--active);
-}
-
+/* Align footer on bottom */
 footer {
     text-align: center;
     margin: 5vh 0;
 }
 
-/*
-#bankrollHeader {
-    display: flex;
-    display: row;
-    justify-content: space-around;
-}
+/* Set smaller device settings */
+@media (max-width: 472px) {
+    /* Decrease header button font size */
+    #indexHeader button {
+        font-size: 1em;
+    }
 
-#bankrollTitle {
-    margin: auto 0;
-    font-size: 2em;
-}
+    /* Decrease header h1 font size */
+    #indexHeader h1 {
+        font-size: 2em;
+    }
 
-#newButton {
-    padding: 10px;
-    height: 20%;
+    /* Set a minimum margin for the table */
+    #tableStart {
+        margin-left: 3em;
+    }
 }
-
-table {
-    border-collapse: collapse;
-    justify-content: center;
-    width: 80%;
-}
-
-td, th {
-    padding: 5px;
-}
-
-td:nth-child(even) {
-    background-color: lightyellow;
-}
-*/
