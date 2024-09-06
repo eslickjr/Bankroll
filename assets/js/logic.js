@@ -29,9 +29,6 @@ function deleteRow(i) {
         if (willDelete) {
             const allContractsData = readContractsData();
             allContractsData.splice(i, 1);
-            if (allContractsData.length === 0) {
-                noContracts();
-            }
             localStorage.setItem('allContractsData', JSON.stringify(allContractsData));
             renderContractList();
             swal("The contract has been deleted!", {
