@@ -9,10 +9,7 @@ In this project, we will create a two page website where users will input and vi
 
 ## User Story
 
-```md
 As a financial analyst, I want to be able to create a list of contracts that my company has with suppliers so that I can help my business partners set budgets and forecast expenses.
-
-```
 
 ## Acceptance Criteria
 
@@ -42,9 +39,7 @@ This application will allow an analyst to create a list of contracts to help the
 
 The analyst should be able to delete any contract if they wish by clicking the trash can icon next to the contract that they would like to delete. When they click the trash can icon, a modal should fire asking the analyst to confirm the deletion. The analyst should also be able to sort the table of contracts by clicking on the column header. The arrow icon next to the column header name will indicate if the table is sorted in ascending/descending order. The picture below shows a list of contracts sorted in descending order by value.
 
-    ```md
-    ![alt text](/assets/images/Sorted_table.png)
-    ```
+    ![Sorted Table](/assets/images/Sorted_table.png)
 
 ## Credits
 Jaymeson White
