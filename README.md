@@ -1,7 +1,7 @@
 # Contract Tracking by the Bankrollers
 
 ## Deployed application
-[text](https://eslickjr.github.io/Bankroll/)
+[Deployed application - https://eslickjr.github.io/Bankroll/](https://eslickjr.github.io/Bankroll/)
 
 ## Task
 
@@ -39,7 +39,7 @@ This application will allow an analyst to create a list of contracts to help the
 
 The analyst should be able to delete any contract if they wish by clicking the trash can icon next to the contract that they would like to delete. When they click the trash can icon, a modal should fire asking the analyst to confirm the deletion. The analyst should also be able to sort the table of contracts by clicking on the column header. The arrow icon next to the column header name will indicate if the table is sorted in ascending/descending order. The picture below shows a list of contracts sorted in descending order by value.
 
-    ![Sorted Table](/assets/images/Sorted_table.png)
+![Sorted Table](./assets/images/Sorted_table.png)
 
 ## Credits
 Jaymeson White
