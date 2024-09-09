@@ -37,49 +37,45 @@ THEN I can by clicking on the delete button next to the row that I want to delet
 ```
 
 
-## Description
-This application will allow an analyst to create a list of contracts to help them create and forecast budgets for their business partners. The analyst can add contracts to the list by clicking the '+ New Contract' button at which point they are taken to the Contract Input Form page. On this page they can enter an alphanumeric Contract ID, and alphanumeric Vendor name, a positive Contract Value number limited to two decimal places, a Start Date for the contract, and an End date for the contract that cannot be before the Start Date. 
+## Description and Features
+This application will allow an analyst to create a list of contracts to help them create and forecast budgets for their business partners. The analyst can add contracts to the list by clicking the '+ New Contract' button at which point they are taken to the Contract Input Form page. On this page they can enter an alphanumeric Contract ID, and alphanumeric Vendor name, a positive Contract Value number limited to two decimal places, a Start Date for the contract, and an End date for the contract that cannot be before the Start Date. The form will also check that data has been entered into every field. Once the analyst clicks 'Submit', they app will ask for confirmation that they want to create the contract. After the analyst approves, they should be taken back to the Contract Tracking page and see their new contract added to the bottom of the table.
 
-After submitting the Contract Input Form, the analyst should be taken back to the Contract Tracking page. They should be able to delete the contract if they wish by clicking the trash can icon next to the contract that they would like to delete. They should also be able to sort the table of contracts by clicking on the column header. The arrow icon next to the column header name will indicate if the table is sorted in ascending/descending order. The picture below shows a list of contracts sorted in descending order by value.
-
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+The analyst should be able to delete any contract if they wish by clicking the trash can icon next to the contract that they would like to delete. When they click the trash can icon, a modal should fire asking the analyst to confirm the deletion. The analyst should also be able to sort the table of contracts by clicking on the column header. The arrow icon next to the column header name will indicate if the table is sorted in ascending/descending order. The picture below shows a list of contracts sorted in descending order by value.
 
     ```md
-    ![alt text](assets/images/screenshot.png)
+    ![alt text](/assets/images/Sorted_table.png)
     ```
 
 ## Credits
+Jaymeson White
+Joshua Eslick
+Ryan Schwark
+Shirisha Korukonda Bhattaru
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+This code also uses https://getbootstrap.com/, https://sweetalert2.github.io/, and https://fontawesome.com/
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+MIT License
+
+Copyright (c) 2024 Ryan Schwark
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ---
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
