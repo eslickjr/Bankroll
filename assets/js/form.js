@@ -49,7 +49,7 @@ function submitContract() {
         contractInfo.startDate = startDate.toISOString().split('T')[0];
         contractInfo.endDate = endDate.toISOString().split('T')[0];
 
-        storeContractInfo(contractInfo);
+        //storeContractInfo(contractInfo);
         //TODO redirect to the landing page
         // redirectPage('./index.html');
         Swal.fire({
@@ -61,14 +61,19 @@ function submitContract() {
             cancelButtonText: 'No,Cancel',
         }).then((result) => {
             if (result.isConfirmed) {
+                storeContractInfo(contractInfo);
                 successMessage('Contract successfully added!', './index.html');
             }
             else if (result.dismiss === Swal.DismissReason.cancel) {
+                             
                 Swal.fire(
                     'Cancelled',
                     'Contract not added :)',
                     'error'
                 )
+                //remove the contract data from local storage
+                //localStorage.removeItem('contractInfo');
+               // removeTableData();
             }
         });
     }
